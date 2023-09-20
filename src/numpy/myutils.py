@@ -6,7 +6,7 @@ class Dataloader:
 		This class helps load and pre-process data. This class mandates that the data file should have a header. 
 	'''
 
-	def __init__(self,filename,label_column_names, categorical_column_names=None,missing_values=' ',filling_values=None, delim=",", train_test_ratio=0.8,seed=0):
+	def __init__(self,filename,label_column_names, categorical_column_names=None,missing_values=' ',filling_values=None, delim=",", train_test_ratio=0.8,seed=0,norm=False):
 		
 		# load data from the file
 		self.data=np.genfromtxt(filename,skip_header=0,names=True,
@@ -33,6 +33,10 @@ class Dataloader:
 		else:
 			self.categorical_features=None
 		self.labels=np.array([list(labels[i]) for i in range(self.num_samples)])
+
+		# standardise
+		if(norm==True):
+			self.numeric_features= (self.numeric_features- np.mean(self.numeric_features))/ np.std(self.numeric_features) 
 
 		# split into train/test
 		idx=np.arange(0,self.num_samples)
@@ -62,5 +66,4 @@ class Dataloader:
 		print(f'Training target data shape: {self.Y_train.shape}')
 		print(f'Test input data shape (numeric): {self.X_test_numeric.shape}')
 		print(f'Test target data shape: {self.Y_test.shape}')
-
 

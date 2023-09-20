@@ -39,8 +39,8 @@ class LinearRegression:
 		return np.transpose(self.W) @ X
 
 	# Since we are calculating gradient manually, defining a function to return gradient
-	# The function returns D dimensional weights assuming X is D dimensional (D*N)	
-	# Ys need to be 1*N format
+	# The function returns D dimensional weights assuming X is D dimensional (N*D)	
+	# Ys need to be N*1 format
 	def error_gradient(self, Y_predicted, X):
 		# the derivative of error function is just calculated "by hand" and coded below
 		return (Y_predicted-self.Y) @ X
