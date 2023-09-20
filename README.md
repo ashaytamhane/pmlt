@@ -1,4 +1,4 @@
-# pmlt
+# pmlt - python ml toolkit
 
 This is a library for pedagogical purposes. Has my implementations of common ML algorithms from "scratch". 
 
