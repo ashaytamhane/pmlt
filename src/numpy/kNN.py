@@ -3,6 +3,7 @@ import numpy as np
 from collections import Counter
 
 # kNN is a non-parametric approach as it does not make any assumptions on the data
+# In kNN, we simply fetch k nearest neighbours in terms of euclidean distance and take their majority votes (labels) for prediction
 
 class kNN:
 	def __init__(self,X_train,Y_train,k):

@@ -58,9 +58,9 @@ class Dataloader:
 		print(f'Number of samples: {self.num_samples}')
 		print(f'Numeric input data shape: {self.numeric_features.shape}')
 		print(f'Target data shape: {self.labels.shape}')
-		print(f'Training input data shape: {self.X_train_numeric.shape}')
+		print(f'Training input data shape (numeric): {self.X_train_numeric.shape}')
 		print(f'Training target data shape: {self.Y_train.shape}')
-		print(f'Test input data shape: {self.X_test_numeric.shape}')
+		print(f'Test input data shape (numeric): {self.X_test_numeric.shape}')
 		print(f'Test target data shape: {self.Y_test.shape}')
 
 
