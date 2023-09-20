@@ -13,7 +13,7 @@ import math
 
 class LogisticRegression:
 	'''
-		This class assumes X and Y to be input as N*D and N*1 dimensions respectively
+		This class assumes X and Y to be input as N*D and N*1 dimensions respectively for simplicty of calling
 	'''
 	def __init__(self, X, Y):
 		self.X=np.transpose(X) # convert into internal notation of D*N
@@ -22,8 +22,8 @@ class LogisticRegression:
 		self.W=np.random.rand(self.dim,1)
 
 	def forward(self,X):
-		X=np.transpose(X) # get X in internal dim format
-		Y=np.transpose(self.W) @ X
+		X=np.transpose(X) # get X in D*N format
+		Y=np.transpose(self.W) @ X # get X in 1*N format
 		Y_predicted= np.array([1/(1+math.exp(-i)) for i in Y[0]])
 		return Y_predicted.reshape(len(Y_predicted),1)
 
