@@ -9,7 +9,7 @@ dl.stats()
 # initialise model
 model=LinearRegression(dl.X_train_numeric, dl.Y_train)
 # training loop
-num_iter=50
+num_iter=10
 learning_rate=0.01
 for epoch in range(0,num_iter):
 

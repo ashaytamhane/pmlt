@@ -36,13 +36,15 @@ class LinearRegression:
 
 	def forward(self, X):
 		X=np.transpose(X) # to convert into internal D*N format
-		return np.transpose(self.W) @ X
+		Y_predicted=np.transpose(self.W) @ X
+		return np.transpose(Y_predicted)
 
 	# Since we are calculating gradient manually, defining a function to return gradient
 	# The function returns D dimensional weights assuming X is D dimensional (N*D)	
 	# Ys need to be N*1 format
 	def error_gradient(self, Y_predicted, X):
 		# the derivative of error function is just calculated "by hand" and coded below
+		Y_predicted=np.transpose(Y_predicted)
 		return (Y_predicted-self.Y) @ X
 
 

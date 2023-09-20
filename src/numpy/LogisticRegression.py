@@ -25,14 +25,17 @@ class LogisticRegression:
 		X=np.transpose(X) # get X in internal dim format
 		Y=np.transpose(self.W) @ X
 		Y_predicted= np.array([1/(1+math.exp(-i)) for i in Y[0]])
-		return Y_predicted.reshape(1,len(Y_predicted))
+		return Y_predicted.reshape(len(Y_predicted),1)
 
 	def loss(self,Y_predicted, Y_actual):
-		return np.sum((Y_predicted-Y_actual)**2)/len(Y_predicted)
+		Y_predicted=Y_predicted[0]
+		Y_actual=Y_actual[0]
+		return -np.sum(Y_actual*math.log(Y_predicted)+(1-Y_actual)*math.log(1-Y_predicted))
 
 	# Since we are calculating gradient manually, defining a function to return gradient
 	# The function returns D dimensional weights assuming X is D dimensional (N*D)	
 	# Ys need to be N*1 format
 	def error_gradient(self, Y_predicted, X):
+		Y_predicted=np.transpose(Y_predicted)
 		# the derivative of error function is just calculated "by hand" and coded below
 		return (Y_predicted-self.Y) @ X
