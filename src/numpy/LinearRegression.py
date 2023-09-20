@@ -6,7 +6,8 @@ from myutils import Dataloader
 #         - p(t|x)= gaussian with mean y(w,x) and std deviation beta
 
 # Step 2: - Hypothesis function: p(t|x)= W transpose*X where W is the column weight matrix and each col in X is a D dim sample
-#         - Lets also allow a transformation phi on x for non-linearity in x. So y(W,X) = Y_predicted= W transpose* phi (X)
+#         - We could also allow a transformation phi on x for non-linearity in x. So y(W,X) = Y_predicted= W transpose* phi (X)
+#         - However, in this library its assumed all such transformations are applied in X itself
 
 # Step 3: - Max likelihood approach: p(T|X)= product over all samples p(t|x) = product over gaussian with mean (W transpose * phi (X))
 #         - Taking log likelihood, we will get the negative of error term 1/2*sum (y_predicted-y_actual)**2
@@ -41,6 +42,7 @@ class LinearRegression:
 	# The function returns D dimensional weights assuming X is D dimensional (D*N)	
 	# Ys need to be 1*N format
 	def error_gradient(self, Y_predicted, X):
+		# the derivative of error function is just calculated "by hand" and coded below
 		return (Y_predicted-self.Y) @ X
 
 

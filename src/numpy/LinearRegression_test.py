@@ -18,7 +18,7 @@ for epoch in range(0,num_iter):
 	
 	# get error
 	loss=model.loss(Y_predicted,dl.Y_train)
-	print(f'Loss: {loss:0.2f}')
+	print(f'Epoch: {epoch}, Loss: {loss:0.2f}')
 
 	# get gradient
 	error_gradients_weights= model.error_gradient(Y_predicted,dl.X_train_numeric)
@@ -29,6 +29,6 @@ for epoch in range(0,num_iter):
 # predict for new data
 Y_predicted=model.forward(dl.X_test_numeric)
 print(f'X_test: {dl.X_test_numeric} Y_predicted: {Y_predicted}')
-#accuracy
+#final loss
 loss=model.loss(Y_predicted,dl.Y_test)
-print(loss)
+print(f'Test loss: {loss:0.02f}')
