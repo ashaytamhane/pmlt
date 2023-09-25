@@ -55,7 +55,7 @@ for epoch in range(0,num_iter):
 model.eval()
 
 tl=DataLoader(test_dataset,batch_size=len(test_dataset))
-correct=0
+
 with torch.no_grad():
 
 	# iterate through test batches
