@@ -15,3 +15,10 @@ class MLP(nn.Module):
 		hidden_output=self.hidden_activation_func(self.hidden_layer(inputs))
 		outputs=self.output_activation_func(self.output_layer(hidden_output))
 		return outputs
+
+
+class MLP_scratch():
+	'''
+		To be implemented
+	'''
+	pass
