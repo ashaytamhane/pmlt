@@ -14,3 +14,10 @@ class LogisticRegression(nn.Module):
 	def forward(self,X):
 		return self.sig(self.lin(X))
 
+
+class LogisticRegressionScratch():
+	'''
+	    To be implemented from basic torch operations
+	'''
+	pass
+
