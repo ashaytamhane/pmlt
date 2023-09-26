@@ -5,13 +5,14 @@ from sklearn import preprocessing
 
 class WineDataset(Dataset):
 	'''
-	    Class for custom data set. Pls tweak the __init__ function for custom data processing
+	    Class for wine data set (https://archive.ics.uci.edu/dataset/109/wine). Pls tweak the __init__ function for
+	    changing the path
 	'''
 
 	def __init__(self):
 		super().__init__()
 		# since the data is all numerical, can use loadtxt function
-		data=np.loadtxt("/Users/ashay.tamhane/pmlt/data/wine.csv",delimiter=",",skiprows=1)
+		data=np.loadtxt("../../data/wine.csv",delimiter=",",skiprows=1)
 
 		# split features and label. Label feature is 0
 		X=data[:,1:]
