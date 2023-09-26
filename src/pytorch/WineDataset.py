@@ -5,7 +5,7 @@ from sklearn import preprocessing
 
 class WineDataset(Dataset):
 	'''
-	    Class for wine data set (https://archive.ics.uci.edu/dataset/109/wine). Pls tweak the __init__ function for
+	    Class for wine data set (https://github.com/patrickloeber/pytorchTutorial/tree/master/data/wine). Pls tweak the __init__ function for
 	    changing the path
 	'''
 
